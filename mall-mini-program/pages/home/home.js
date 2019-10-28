@@ -14,22 +14,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        wx.request({
-            url: `${config.apiBaseUrl}theme/by/names`,
-            method: 'GET',
-            data: {
-                names: 't-1'
-            },
-            header: {
-                appkey: 'Ypje0jrGpxakxQAl'
-            },
-            // 箭头函数保持this的指代不变
-            success: res => {
-                this.setData({
-                    topTheme: res.data[0]
-                })
-            }
-        })
+
     },
 
     /**
