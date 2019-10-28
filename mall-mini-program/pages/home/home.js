@@ -1,23 +1,33 @@
 // pages/home/home.js
+import {config} from "../../config/config";
+
 Page({
 
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        topTheme: null
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         wx.request({
-            url: 'theme/by/names',
+            url: `${config.apiBaseUrl}theme/by/names`,
             method: 'GET',
             data: {
                 names: 't-1'
             },
             header: {
-                appkey: ''
+                appkey: 'Ypje0jrGpxakxQAl'
+            },
+            // 箭头函数保持this的指代不变
+            success: res => {
+                this.setData({
+                    topTheme: res.data[0]
+                })
             }
         })
     },
