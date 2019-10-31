@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/home/home"
+    "pages/home/home",
+    "components/category-gird/category-grid",
+    "components/category-gird/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
