@@ -1,8 +1,7 @@
 {
   "pages": [
     "pages/home/home",
-    "components/category-gird/category-grid",
-    "components/category-gird/index"
+    "components/category-grid/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,5 +9,9 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "l-grid": "/miniprogram_npm/lin-ui/grid/index",
+    "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index"
+  }
 }
