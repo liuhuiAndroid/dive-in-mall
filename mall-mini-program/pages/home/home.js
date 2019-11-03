@@ -15,7 +15,9 @@ Page({
         grid: [],
         activityD: null,
         themeE: null,
-        themeESpuList: []
+        themeESpuList: [],
+        themeF: null,
+        themeH: null
     },
 
     /**
@@ -29,8 +31,9 @@ Page({
         const theme = new Theme()
         const themes = await theme.getThemes()
         // 保证调用过程简单
-        const themeA = await theme.getHomeLocationA()
-        const themeE = await theme.getHomeLocationE()
+        const themeA = theme.getHomeLocationA()
+        const themeE = theme.getHomeLocationE()
+        const themeF = theme.getHomeLocationF()
         let themeESpu = []
         if (themeE.online) {
             const data = await Theme.getHomeLocationESpu()
@@ -41,13 +44,18 @@ Page({
         const bannerB = await Banner.getHomeLocationB()
         const grid = await Category.getHomeLocationC()
         const activityD = await Activity.getHomeLocationD()
+        const bannerG = await Banner.getHomeLocationG()
+        const themeH = theme.getHomeLocationH()
         this.setData({
             themeA,
-            themeE,
-            themeESpuList: themeESpu,
             bannerB,
             grid,
-            activityD
+            activityD,
+            themeE,
+            themeESpuList: themeESpu,
+            themeF,
+            bannerG,
+            themeH
         })
     },
 

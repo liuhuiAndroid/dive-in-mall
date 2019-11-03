@@ -1,5 +1,8 @@
 // components/spu-scroll/index.js
 Component({
+
+    externalClasses: ['l-class'],
+
     /**
      * 组件的属性列表
      */
