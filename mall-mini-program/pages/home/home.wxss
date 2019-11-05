@@ -38,3 +38,16 @@
     /*消除图片的默认边距*/
     display: flex;
 }
+
+.spu-bottom{
+    margin-top: 20rpx;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.title-spu-bottom{
+    width: 690rpx;
+    height: 70rpx;
+    margin-bottom: 38rpx;
+}
