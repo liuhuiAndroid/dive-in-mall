@@ -1,2 +1,15 @@
 <!--components/spu-preview/index.wxml-->
-<text>components/spu-preview/index.wxml</text>
+<view class="container">
+    <image class="img" src="{{data.img}}"></image>
+    <view class="content-container">
+        <text class="title">{{data.title}}</text>
+        <view class="tags">
+            <block wx:for="{{tags}}">
+                <l-tag l-class="l-tag">{{item}}</l-tag>
+            </block>
+        </view>
+        <l-price value="{{data.price}}"></l-price>
+        <l-price deleted value="{{data.discount_price}}"></l-price>
+        <text>{{data.subtitle}}</text>
+    </view>
+</view>

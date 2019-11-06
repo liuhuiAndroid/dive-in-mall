@@ -21,12 +21,13 @@ Page({
         themeH: null
     },
 
-    async initBottomSpuList(){
+    async initBottomSpuList() {
         const paging = await SpuPaging.getLatestPaging()
-        const data = paging.getMoreData()
-        if(!data){
+        const data = await paging.getMoreData()
+        if (!data) {
             return
         }
+        wx.lin.renderWaterFlow(data.items)
     },
 
     /**
@@ -34,6 +35,7 @@ Page({
      */
     async onLoad(options) {
         this.initAllData()
+        this.initBottomSpuList()
     },
 
     async initAllData() {
