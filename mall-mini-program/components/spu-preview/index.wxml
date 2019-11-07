@@ -1,4 +1,6 @@
 <!--components/spu-preview/index.wxml-->
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
+
 <view class="container">
     <image class="img" src="{{data.img}}"></image>
     <view class="content-container">
@@ -8,8 +10,24 @@
                 <l-tag l-class="l-tag">{{item}}</l-tag>
             </block>
         </view>
-        <l-price value="{{data.price}}"></l-price>
-        <l-price deleted value="{{data.discount_price}}"></l-price>
-        <text>{{data.subtitle}}</text>
+        <view class="price-row">
+            <l-price color="#157658"
+                     value-size="28"
+                     unit-size="20"
+                     auto-fix
+                     value="{{p.mainPrice(data.price,data.discount_price).price}}">
+
+            </l-price>
+            <l-price
+                    l-class="discount-price"
+                    color="#999999"
+                    size="26"
+                    deleted
+                    wx:if="{{p.slashedPrice(data.price,data.discount_price).display}}"
+                    value="{{p.slashedPrice(data.price,data.discount_price).price}}">
+
+            </l-price>
+        </view>
+        <text class="subtitle">{{data.subtitle}}</text>
     </view>
 </view>

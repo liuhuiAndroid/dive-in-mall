@@ -1,7 +1,38 @@
-function mainPrice(){
-
+/**
+ * 获取销售价格
+ */
+function mainPrice(price, discountPrice) {
+    if (!discountPrice) {
+        return {
+            price: price,
+            display: true
+        }
+    } else {
+        return {
+            price: discountPrice,
+            display: true
+        }
+    }
 }
 
-function slashedPrice(){
+/**
+ * 获取划线价格
+ */
+function slashedPrice(price, discountPrice) {
+    if (discountPrice) {
+        return {
+            price: price,
+            display: true
+        }
+    } else {
+        return {
+            price: null,
+            display: false
+        }
+    }
+}
 
+module.exports = {
+    mainPrice: mainPrice,
+    slashedPrice: slashedPrice
 }
