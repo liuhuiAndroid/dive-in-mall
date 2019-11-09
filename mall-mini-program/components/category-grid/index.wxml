@@ -2,7 +2,7 @@
 <view class="container">
     <!--自定义组件需要使用外部样式类-->
     <l-grid row-num="3" l-class="inner-container">
-        <block wx:for="{{grid}}">
+        <block wx:for="{{grid}}" wx:key="{{index}}">
             <l-grid-item key="{{index}}" slot="{{index}}">
                 <view class="grid-item">
                     <image class="img" src="{{item.img}}"></image>

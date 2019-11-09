@@ -1,10 +1,10 @@
 <!--pages/home/home.wxml-->
-<l-loadmore show end-text="- 我是有底线的 -" type="{{loadingType}}">
+<l-loadmore show end-text="- 我是渣渣飞 -" type="{{loadingType}}">
     <view slot="content" class="container">
         <image class="top-theme" src="{{themeA.entrance_img}}"></image>
         <swiper class="swiper" indicator-dots indicator-active-color="#157658"
                 autoplay circular>
-            <block wx:for="{{bannerB.items}}">
+            <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
                 <swiper-item>
                     <image class="swiper" src="{{item.img}}"></image>
                 </swiper-item>

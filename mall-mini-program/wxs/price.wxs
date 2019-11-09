@@ -3,11 +3,13 @@
  */
 function mainPrice(price, discountPrice) {
     if (!discountPrice) {
+        // 折扣价不存在，主价格是原价
         return {
             price: price,
             display: true
         }
     } else {
+        // 折扣价存在，主价格是折扣价
         return {
             price: discountPrice,
             display: true
@@ -20,11 +22,13 @@ function mainPrice(price, discountPrice) {
  */
 function slashedPrice(price, discountPrice) {
     if (discountPrice) {
+        // 折扣价存在，划线价是原价
         return {
             price: price,
             display: true
         }
     } else {
+        // 折扣价不存在，划线价不存在
         return {
             price: null,
             display: false
@@ -32,6 +36,7 @@ function slashedPrice(price, discountPrice) {
     }
 }
 
+// WXS只可以使用ES5
 module.exports = {
     mainPrice: mainPrice,
     slashedPrice: slashedPrice

@@ -30,6 +30,7 @@ Page({
         if (!data) {
             return
         }
+        // 渲染数据，将数组传入瀑布流（瀑布流会自动累加数据）
         wx.lin.renderWaterFlow(data.items)
     },
 
@@ -90,6 +91,7 @@ Page({
             return
         }
         wx.lin.renderWaterFlow(data.items)
+        // 实现页底提示
         if (!data.moreData) {
             this.setData({
                 loadingType: 'end'

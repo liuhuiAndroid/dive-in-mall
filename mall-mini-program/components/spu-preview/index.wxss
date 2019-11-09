@@ -3,6 +3,7 @@
     width: 340rpx;
     display: flex;
     flex-direction: column;
+    /*边框效果*/
     box-shadow: 0px 0px 8px 0px rgba(119, 163, 149, 0.2);
     margin-bottom: 30rpx;
     background-color: #ffffff;
@@ -16,6 +17,7 @@
 
 .img {
     width: 100%;
+    /*高度自适应*/
     /*height: 360rpx;*/
 }
 
@@ -24,9 +26,11 @@
     flex-direction: row;
     margin-bottom: 8rpx;
     margin-top: 6rpx;
+    /*换行*/
     flex-wrap: wrap;
 }
 
+/*外部样式类*/
 .l-tag {
     background-color: #DCEBE6 !important;
     color: #157658 !important;
@@ -46,6 +50,7 @@
     flex-direction: row;
 }
 
+/*外部样式类*/
 .discount-price {
     margin-left: 20rpx;
 }

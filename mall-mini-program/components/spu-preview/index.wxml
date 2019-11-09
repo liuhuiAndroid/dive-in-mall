@@ -1,16 +1,21 @@
 <!--components/spu-preview/index.wxml-->
+<!--导入WXS-->
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
 
 <view class="container">
-    <image mode="widthFix" class="img" src="{{data.img}}"></image>
+    <!--  动态计算宽高  -->
+    <!--  <image mode="widthFix" class="img" src="{{data.img}}"></image>  -->
+    <image bind:load="onImageLoad" style="width:{{w}}rpx;height:{{h}}rpx" src="{{data.img}}"></image>
     <view class="content-container">
         <text class="title">{{data.title}}</text>
+        <!--标签-->
         <view class="tags">
             <block wx:for="{{tags}}" wx:key="{{index}}">
                 <l-tag type="reading" l-class="l-tag">{{item}}</l-tag>
             </block>
         </view>
         <view class="price-row">
+            <!--原价-->
             <l-price color="#157658"
                      value-size="28"
                      unit-size="20"
@@ -18,6 +23,7 @@
                      value="{{p.mainPrice(data.price,data.discount_price).price}}">
 
             </l-price>
+            <!--折扣价-->
             <l-price
                     l-class="discount-price"
                     color="#999999"
