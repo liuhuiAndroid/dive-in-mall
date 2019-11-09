@@ -24,7 +24,7 @@ Page({
     },
 
     async initBottomSpuList() {
-        const paging = await SpuPaging.getLatestPaging()
+        const paging = SpuPaging.getLatestPaging()
         this.data.spuPaging = paging
         const data = await paging.getMoreData()
         if (!data) {

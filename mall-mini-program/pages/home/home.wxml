@@ -17,8 +17,10 @@
         <image src="{{themeF.entrance_img}}" class="quality"></image>
         <s-hot-list banner="{{bannerG}}"></s-hot-list>
         <image src="{{themeH.entrance_img}}" class="fashion"></image>
+        <!--为你推荐列表-->
         <view class="spu-bottom">
             <image class="title-spu-bottom" src="/imgs/home/title@interest.png"></image>
+            <!--瀑布流组件，通过属性传递抽象节点-->
             <l-water-flow generic:l-water-flow-item="s-spu-preview"></l-water-flow>
         </view>
     </view>

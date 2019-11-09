@@ -1,7 +1,7 @@
 import {Paging} from "../utils/paging";
 
 class SpuPaging {
-    static async getLatestPaging() {
+    static getLatestPaging() {
         return new Paging({
             url: `spu/latest`
         }, 3)
