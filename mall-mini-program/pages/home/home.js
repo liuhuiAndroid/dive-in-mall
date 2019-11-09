@@ -18,11 +18,14 @@ Page({
         themeE: null,
         themeESpuList: [],
         themeF: null,
-        themeH: null
+        themeH: null,
+        spuPaging: null,
+        loadingType: 'loading'
     },
 
     async initBottomSpuList() {
         const paging = await SpuPaging.getLatestPaging()
+        this.data.spuPaging = paging
         const data = await paging.getMoreData()
         if (!data) {
             return
@@ -80,8 +83,18 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
-
+    onReachBottom: async function () {
+        console.log('onReachBottom')
+        const data = await this.data.spuPaging.getMoreData()
+        if (!data) {
+            return
+        }
+        wx.lin.renderWaterFlow(data.items)
+        if (!data.moreData) {
+            this.setData({
+                loadingType: 'end'
+            })
+        }
     },
 
     /**
