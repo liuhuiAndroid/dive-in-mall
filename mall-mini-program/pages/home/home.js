@@ -20,7 +20,7 @@ Page({
         themeF: null,
         themeH: null,
         spuPaging: null,
-        loadingType: 'loading'
+        getThemeSpuByName: 'loading'
     },
 
     async initBottomSpuList() {
@@ -49,11 +49,11 @@ Page({
         const themeA = theme.getHomeLocationA()
         const themeE = theme.getHomeLocationE()
         const themeF = theme.getHomeLocationF()
-        let themeESpu = []
+        let themeESpuList = []
         if (themeE.online) {
             const data = await Theme.getHomeLocationESpu()
             if (data) {
-                themeESpu = data.spu_list.slice(0, 8)
+                themeESpuList = data.spu_list.slice(0, 8)
             }
         }
         const bannerB = await Banner.getHomeLocationB()
@@ -67,7 +67,7 @@ Page({
             grid,
             activityD,
             themeE,
-            themeESpuList: themeESpu,
+            themeESpuList,
             themeF,
             bannerG,
             themeH

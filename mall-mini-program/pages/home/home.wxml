@@ -12,7 +12,8 @@
         </swiper>
         <s-category-grid grid="{{grid}}"></s-category-grid>
         <image class="activity" src="{{activityD.entrance_img}}"></image>
-        <s-spu-scroll l-class="spu-scroll" theme="{{themeE}}" spuList="{{themeESpuList}}"
+        <!--每周上新列表-->
+        <s-spu-scroll l-class="spu-scroll" theme="{{themeE}}" spu-list="{{themeESpuList}}"
                       wx:if="{{themeE.online}}"></s-spu-scroll>
         <image src="{{themeF.entrance_img}}" class="quality"></image>
         <s-hot-list banner="{{bannerG}}"></s-hot-list>
