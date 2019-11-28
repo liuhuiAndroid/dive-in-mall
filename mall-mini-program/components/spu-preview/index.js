@@ -47,6 +47,16 @@ Component({
                 w: 340,
                 h: 340 * height / width
             })
+        },
+        onItemTap(event){
+            const pid = event.currentTarget.dataset.pid
+            // 跳转页面，调用路由Api
+            wx.navigateTo({
+                url: `/pages/detail/detail?pid=${pid}`
+            })
+            // 不适合放在组件中进行页面跳转，更适合在home中跳转
+
+            // EventChannel
         }
     }
 })

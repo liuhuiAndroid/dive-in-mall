@@ -2,7 +2,7 @@
 <!--导入WXS-->
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
 
-<view class="container">
+<view data-pid="{{data.id}}" bind:tap="onItemTap" class="container">
     <!--  动态计算宽高  -->
     <!--  <image mode="widthFix" class="img" src="{{data.img}}"></image>  -->
     <image bind:load="onImageLoad" style="width:{{w}}rpx;height:{{h}}rpx" src="{{data.img}}"></image>
