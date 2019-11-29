@@ -2,6 +2,7 @@
 <l-loadmore show end-text="- 我是渣渣飞 -" type="{{loadingType}}">
     <view slot="content" class="container">
         <image class="top-theme" src="{{themeA.entrance_img}}"></image>
+        <!--轮播图-->
         <swiper class="swiper" indicator-dots indicator-active-color="#157658"
                 autoplay circular>
             <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
@@ -10,12 +11,14 @@
                 </swiper-item>
             </block>
         </swiper>
+        <!--分类宫格控件-->
         <s-category-grid grid="{{grid}}"></s-category-grid>
         <image class="activity" src="{{activityD.entrance_img}}"></image>
         <!--每周上新列表-->
         <s-spu-scroll l-class="spu-scroll" theme="{{themeE}}" spu-list="{{themeESpuList}}"
                       wx:if="{{themeE.online}}"></s-spu-scroll>
         <image src="{{themeF.entrance_img}}" class="quality"></image>
+        <!--热卖榜单-->
         <s-hot-list banner="{{bannerG}}"></s-hot-list>
         <image src="{{themeH.entrance_img}}" class="fashion"></image>
         <!--为你推荐列表-->

@@ -3,6 +3,7 @@
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
 <view class="container l-class">
     <image class="title" src="{{theme.title_img}}"></image>
+    <!--官方可滚动视图控件-->
     <scroll-view scroll-x class="scroll-view">
         <view class="inner">
             <block wx:for="{{spuList}}" wx:key="{{index}}">

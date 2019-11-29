@@ -44,7 +44,7 @@ Page({
 
     async initAllData() {
         const theme = new Theme()
-        const themes = await theme.getThemes()
+        await theme.getThemes()
         // 保证调用过程简单
         const themeA = theme.getHomeLocationA()
         const themeE = theme.getHomeLocationE()
