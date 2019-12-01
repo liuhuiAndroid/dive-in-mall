@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    spu: Object
   },
 
   /**
@@ -12,6 +12,18 @@ Component({
    */
   data: {
 
+  },
+
+  /**
+   * 监听器,处理数据
+   */
+  observers: {
+    'spu': function (spu) {
+      if(!spu){
+        return
+      }
+
+    }
   },
 
   /**
