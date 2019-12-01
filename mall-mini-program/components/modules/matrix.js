@@ -22,7 +22,7 @@ class Matrix {
     /**
      * 生成器写法
      */
-    forEach(cb) {
+    each(cb) {
         // 遍历列
         for (let j = 0; j < this.colsNum; j++) {
             // 遍历行
@@ -31,6 +31,20 @@ class Matrix {
                 cb(element, i, j)
             }
         }
+    }
+
+    /**
+     * 模仿numpy对矩阵进行转置
+     */
+    transpose(){
+        const desArr = []
+        for (let j = 0; j < this.colsNum; j++) {
+            desArr[j] = []
+            for (let i = 0; i < this.rowsNum; i++) {
+                desArr[j][i] = this.m[i][j]
+            }
+        }
+        return desArr
     }
 
 }
