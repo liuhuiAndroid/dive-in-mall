@@ -30,12 +30,12 @@ class FenceGroup {
         const matrix = this._createMatrix(this.skuList)
         const fences = []
         const AT = matrix.transpose()
-        AT.forEach(r=>{
+        AT.forEach(r => {
             const fence = new Fence(r)
             fence.init()
             fences.push(fence)
         })
-        console.log("fences:",fences)
+        console.log("fences:", fences)
     }
 
     _createFence(element) {

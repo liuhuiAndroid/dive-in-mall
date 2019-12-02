@@ -5,6 +5,7 @@ Component({
      * properties是对外的属性
      */
     properties: {
+        // 要进行渲染的数据
         data: Object
     },
 
