@@ -23,7 +23,6 @@ Component({
       if(!spu){
         return
       }
-      console.log("observers:",spu)
       const fencesGroup = new FenceGroup(spu)
       // fencesGroup.initFences()
       fencesGroup.initFences2()

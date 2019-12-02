@@ -10,7 +10,7 @@ class FenceGroup {
         this.skuList = spu.sku_list
     }
 
-    // 矩阵思维
+    // 矩阵思维,逻辑稍微复杂一些
     initFences() {
         const matrix = this._createMatrix(this.skuList)
         const fences = []
@@ -21,7 +21,7 @@ class FenceGroup {
                 currentJ = j
                 fences[currentJ] = this._createFence(element)
             }
-            fences[currentJ].pushValueTitle(element.value)
+            fences[currentJ].push(element)
         })
     }
 

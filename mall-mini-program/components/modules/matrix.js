@@ -1,3 +1,6 @@
+/**
+ * 矩阵
+ */
 class Matrix {
     m
 
@@ -34,7 +37,7 @@ class Matrix {
     }
 
     /**
-     * 模仿numpy对矩阵进行转置
+     * 模仿NumPy对矩阵进行转置
      */
     transpose(){
         const desArr = []
