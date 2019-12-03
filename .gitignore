@@ -8,3 +8,7 @@
 /app/build
 /captures
 .externalNativeBuild
+mall-mini-program/.idea
+mall-mini-program/node_modules
+mall-mini-program/miniprogram_npm
+mall-mini-program/config

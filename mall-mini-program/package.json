@@ -12,6 +12,7 @@
   "author": "seckill",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2"
   }
 }

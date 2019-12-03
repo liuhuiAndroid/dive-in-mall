@@ -2,7 +2,7 @@
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
+    let logs = wx.getStorageSync('logs') || [];
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
@@ -13,7 +13,12 @@ App({
         res.code
       }
     })
-    // 获取用户信息
+
+    /**
+     * 获取用户信息
+     * @param res.authSetting
+     * @param wx.userInfoReadyCallback
+     */
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
