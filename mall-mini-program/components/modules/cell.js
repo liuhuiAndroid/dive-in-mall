@@ -5,7 +5,7 @@ class Cell{
     /**
      *
      * @param spec.value 规格值
-     * @param spec.value_id 规格id
+     * @param spec.value_id 规格值
      */
     constructor(spec){
         this.title = spec.value

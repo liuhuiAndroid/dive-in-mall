@@ -18,6 +18,8 @@ module.exports = {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    // rules参数1:错误等级,0:关闭规则,1:打开规则(作为警告),2:打开规则(作为错误)
+    // rules参数2:处理方式
     "rules": {
         // 强制执行一致的缩进（4个空格）
         "indent": [
