@@ -1,4 +1,5 @@
 import {FenceGroup} from "../modules/fence-group";
+import {Judger} from "../modules/judger";
 
 Component({
   /**
@@ -26,6 +27,7 @@ Component({
       const fencesGroup = new FenceGroup(spu)
       // fencesGroup.initFences()
       fencesGroup.initFences2()
+      const judger = new Judger(fencesGroup)
       this.bindInitData(fencesGroup)
     }
   },

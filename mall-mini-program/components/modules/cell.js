@@ -1,3 +1,6 @@
+/**
+ * 规格值
+ */
 class Cell{
     title
     id

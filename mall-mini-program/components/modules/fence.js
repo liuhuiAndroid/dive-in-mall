@@ -1,5 +1,8 @@
 import {Cell} from "./cell";
 
+/**
+ * 规格
+ */
 class Fence {
     cells = []
     specs
