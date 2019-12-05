@@ -1,9 +1,12 @@
 /**
  * 规格值
  */
+import {CellStatus} from "../../core/enum";
+
 class Cell{
     title
     id
+    status = CellStatus.WAITING
 
     /**
      *
