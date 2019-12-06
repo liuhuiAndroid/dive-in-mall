@@ -30,24 +30,24 @@ class Judger {
         })
     }
 
-    judge(cell) {
-        this._changeCellStatus(cell)
+    judge(cell, x, y) {
+        this._changeCellStatus(cell, x, y)
     }
 
-    _changeCellStatus(cell) {
+    _changeCellStatus(cell, x, y) {
         if (cell.status === CellStatus.WAITING) {
-            cell.status = CellStatus.SELECTED
+            this.fencesGroup.fences[x].cells[y].status = CellStatus.SELECTED
         } else if (cell.status === CellStatus.SELECTED) {
-            cell.status = CellStatus.WAITING
+            this.fencesGroup.fences[x].cells[y].status = CellStatus.WAITING
         }
-
-        this.fencesGroup.fences.forEach(f => {
-            f.cells.forEach(c => {
-                if (c.id === cell.id) {
-                    c.status = cell.status
-                }
-            })
-        })
+        // 下面这个方法通过id也可以修改，不需要x和y
+        // this.fencesGroup.fences.forEach(f => {
+        //     f.cells.forEach(c => {
+        //         if (c.id === cell.id) {
+        //             c.status = cell.status
+        //         }
+        //     })
+        // })
     }
 
 }
