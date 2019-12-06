@@ -48,6 +48,7 @@ Component({
             this.setData({
                 fences: judger.fencesGroup.fences
             })
+            console.log('judger fences:',judger.fencesGroup.fences)
         }
     }
 })

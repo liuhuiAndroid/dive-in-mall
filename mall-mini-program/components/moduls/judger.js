@@ -36,10 +36,17 @@ class Judger {
     _changeCellStatus(cell) {
         if (cell.status === CellStatus.WAITING) {
             cell.status = CellStatus.SELECTED
-        }
-        if (cell.status === CellStatus.SELECTED) {
+        } else if (cell.status === CellStatus.SELECTED) {
             cell.status = CellStatus.WAITING
         }
+
+        this.fencesGroup.fences.forEach(f => {
+            f.cells.forEach(c => {
+                if (c.id === cell.id) {
+                    c.status = cell.status
+                }
+            })
+        })
     }
 
 }
