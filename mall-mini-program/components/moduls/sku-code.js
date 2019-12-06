@@ -38,6 +38,8 @@ class SkuCode {
             console.log("newSegments:", newSegments)
             this.totalSegments = this.totalSegments.concat(newSegments)
         }
+        console.log("totalSegments:", this.totalSegments)
+        console.log("----------------------------------")
     }
 
 }

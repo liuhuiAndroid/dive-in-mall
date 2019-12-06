@@ -1,11 +1,10 @@
 /**
  * @作者 lh
  * @创建时间 2019/12/4 22:14
+ * 折叠 ctrl + -
  */
 import {SkuCode} from "./sku-code";
 import {CellStatus} from "../../core/enum";
-
-// 折叠 ctrl + -
 
 class Judger {
 
@@ -20,8 +19,10 @@ class Judger {
 
     /**
      * 初始化路径字典
+     * @param this.fencesGroup.spu.sku_list 规格列表
      */
     _initPathDict() {
+        console.log("sku_list:", this.fencesGroup.spu.sku_list)
         this.fencesGroup.spu.sku_list.forEach(s => {
             const skuCode = new SkuCode(s.code)
             this.pathDict = this.pathDict.concat(skuCode.totalSegments)
