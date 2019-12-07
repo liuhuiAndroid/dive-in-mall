@@ -16,8 +16,11 @@
     "l-grid": "/miniprogram_npm/lin-ui/grid/index",
     "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "l-price": "/miniprogram_npm/lin-ui/price/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
+    "l-counter": "/miniprogram_npm/lin-ui/counter/index",
+    "s-counter": "/components/counter/index",
     "s-spu-preview": "/components/spu-preview/index"
   }
 }

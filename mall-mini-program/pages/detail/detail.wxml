@@ -1,1 +1,4 @@
-<s-realm spu="{{spu}}"></s-realm>
+<s-tabbar></s-tabbar>
+<!--<s-realm spu="{{spu}}"></s-realm>-->
+
+<l-icon name="home" size="40" color="#157658"></l-icon>

@@ -1,0 +1,18 @@
+<!--components/tab-bar/index.wxml-->
+<view class="container">
+    <view class="icons">
+        <view bind:tap="onGoToHome">
+            <!-- 使用Lin UI l-icon组件 -->
+            <l-icon name="home" size="40" color="#157658"></l-icon>
+        </view>
+        <view bind:tap="onGoToCart">
+            <l-icon name="cart" size="40" color="#157658"></l-icon>
+        </view>
+    </view>
+    <view bind:tap="onAddToCart" class="cart btn-font">
+
+    </view>
+    <view bind:tap="onBuy" class="buy btn-font">
+        立即购买
+    </view>
+</view>

@@ -1,4 +1,23 @@
 /**app.wxss**/
-page{
-  background-color: #f5f5f5;
+page {
+    background-color: #f5f5f5;
+}
+
+/**icon-font*/
+@font-face {
+    font-family: 'noc';  /* project id 1551340 */
+    src: url('//at.alicdn.com/t/font_1551340_0t34objtf5f9.eot');
+    src: url('//at.alicdn.com/t/font_1551340_0t34objtf5f9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1551340_0t34objtf5f9.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1551340_0t34objtf5f9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1551340_0t34objtf5f9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1551340_0t34objtf5f9.svg#iconfont') format('svg');
+}
+
+.noc {
+    font-family: noc !important;
+}
+
+.l-icon-home:before {
+    content: "\e626;"
 }
