@@ -1,5 +1,6 @@
 import {Matrix} from "./matrix";
 import {Fence} from "./fence";
+import {CellStatus} from "../../core/enum";
 
 class FenceGroup {
     spu
@@ -9,6 +10,30 @@ class FenceGroup {
     constructor(spu) {
         this.spu = spu
         this.skuList = spu.sku_list
+    }
+
+    /**
+     * @param spu.default_sku_id
+     */
+    getDefaultSku() {
+        const defaultSkuId = this.spu.default_sku_id
+        if (!defaultSkuId) {
+            return
+        }
+        return this.skuList.find(s => s.id = defaultSkuId)
+    }
+
+    setCellStatusById(cellId, status) {
+        // 封装了forEach()
+        this.eachCell((cell) => {
+            if(cell.id === cellId){
+                cell.status = status
+            }
+        })
+    }
+
+    setCellStatusByXY(x, y, status) {
+        this.fences[x].cells[y].status = status
     }
 
     /**

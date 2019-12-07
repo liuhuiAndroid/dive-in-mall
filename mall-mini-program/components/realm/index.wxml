@@ -1,12 +1,36 @@
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
 <view class="container">
-    <view>
-        <image></image>
+    <view class="sku-preview">
+        <image class="sku-img" src="{{previewImg}}"></image>
+        <view class="sku-description">
+            <text class="title">{{title}}</text>
+            <view class="">
+                <view class="price-row">
+                    <l-price value="{{p.mainPrice(price,discountPrice).price}}"
+                             color="#157658" value-size="28"
+                             unit-size="20" autofix></l-price>
+                    <l-price wx:if="{{p.slashedPrice(price,discountPrice).display}}"
+                             value="{{p.slashedPrice(price,discountPrice).price}}"
+                             deleted color="#999999" value-size="26"
+                             l-class="discount-price"></l-price>
+                    <view wx:if="{{stock & stock>=10}}" class="stock">库存：{{stock}} 件</view>
+                    <view wx:if="{{stock & stock<10 & stock!=0}}" class="stock-pinch">仅剩：{{stock}} 件</view>
+                </view>
+                <view wx:if="{{!noSpec}}" clss="sku-pending">
+                    <text wx:if="{{!skuIntact}}">请选择：</text>
+                    <text wx:else>已选：</text>
+                    <text wx:if="{{!skuIntact}}">待选</text>
+                    <text wx:else>已选</text>
+                </view>
+            </view>
+        </view>
     </view>
+    <view clss="hr"></view>
     <block wx:for="{{fences}}" wx:key="{{index}}">
         <s-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></s-fence>
     </block>
     <view class="counter-container">
-<!--        <l-counter></l-counter>-->
+        <!--        <l-counter></l-counter>-->
     </view>
     <view></view>
 </view>

@@ -2,6 +2,7 @@
  * @作者 lh
  * @创建时间 2019/12/4 22:14
  * 折叠 ctrl + -
+ * 沟通类
  */
 import {SkuCode} from "./sku-code";
 import {CellStatus} from "../../core/enum";
@@ -17,12 +18,35 @@ class Judger {
 
     constructor(fencesGroup) {
         this.fencesGroup = fencesGroup
-        this._initSkuPending()
         this._initPathDict()
+        this._initSkuPending()
     }
 
+    isSkuIntact(){
+        return this.skuPending.isIntact()
+    }
+
+    /**
+     * 初始化默认SKU
+     * @private
+     */
     _initSkuPending() {
-        this.skuPending = new SkuPending()
+        const specsLength = this.fencesGroup.fences.length
+        this.skuPending = new SkuPending(specsLength)
+        const defaultSku = this.fencesGroup.getDefaultSku()
+        if (!defaultSku) {
+            return
+        }
+        this.skuPending.init(defaultSku)
+        console.log('skuPending:', this.skuPending)
+        this._initSelectedCell()
+        this.judge(null, null, null, true)
+    }
+
+    _initSelectedCell() {
+        this.skuPending.pending.forEach(cell => {
+            this.fencesGroup.setCellStatusById(cell.id, CellStatus.SELECTED)
+        })
     }
 
     /**
@@ -38,8 +62,11 @@ class Judger {
         })
     }
 
-    judge(cell, x, y) {
-        this._changeCurrentCellStatus(cell, x, y)
+    judge(cell, x, y, isInit = false) {
+        if (!isInit) {
+            this._changeCurrentCellStatus(cell, x, y)
+        }
+
         // 使用箭头函数，解决this指代问题
         this.fencesGroup.eachCell((cell, x, y) => {
             // 对于某个Cell，它的潜在路径应该是，它自己加上其他行的已选Cell
@@ -50,9 +77,9 @@ class Judger {
             console.log('path:', path)
             const isIn = this._isInDice(path)
             if (isIn) {
-                this.fencesGroup.fences[x].cells[y].status = CellStatus.WAITING
+                this.fencesGroup.setCellStatusByXY(x, y, CellStatus.WAITING)
             } else {
-                this.fencesGroup.fences[x].cells[y].status = CellStatus.FORBIDDEN
+                this.fencesGroup.setCellStatusByXY(x, y, CellStatus.FORBIDDEN)
             }
         })
     }
@@ -103,20 +130,12 @@ class Judger {
      */
     _changeCurrentCellStatus(cell, x, y) {
         if (cell.status === CellStatus.WAITING) {
-            this.fencesGroup.fences[x].cells[y].status = CellStatus.SELECTED
+            this.fencesGroup.setCellStatusByXY(x, y, CellStatus.SELECTED)
             this.skuPending.insertCell(cell, x)
         } else if (cell.status === CellStatus.SELECTED) {
-            this.fencesGroup.fences[x].cells[y].status = CellStatus.WAITING
+            this.fencesGroup.setCellStatusByXY(x, y, CellStatus.WAITING)
             this.skuPending.removeCell(x)
         }
-        // 下面这个方法通过id也可以修改，不需要x和y
-        // this.fencesGroup.fences.forEach(f => {
-        //     f.cells.forEach(c => {
-        //         if (c.id === cell.id) {
-        //             c.status = cell.status
-        //         }
-        //     })
-        // })
     }
 
 }
