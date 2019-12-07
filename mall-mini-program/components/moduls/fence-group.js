@@ -23,10 +23,16 @@ class FenceGroup {
         return this.skuList.find(s => s.id = defaultSkuId)
     }
 
+    getSku(skuCode) {
+        const fullSkuCode = this.spu.id+'$' + skuCode
+        const sku = this.spu.sku_list.find(s => s.code === fullSkuCode)
+        return sku ? sku : null
+    }
+
     setCellStatusById(cellId, status) {
         // 封装了forEach()
         this.eachCell((cell) => {
-            if(cell.id === cellId){
+            if (cell.id === cellId) {
                 cell.status = status
             }
         })

@@ -35,8 +35,16 @@
 
 .sku-pending {
     font-size: 20rpx;
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
+}
+
+.sku-pending > text:first-child {
+    color: #999999;
+}
+
+.sku-pending > text:nth-child(2) {
+    color: #666666;
 }
 
 .hr {

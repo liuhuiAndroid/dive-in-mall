@@ -1,6 +1,7 @@
 import {FenceGroup} from "../moduls/fence-group";
 import {Judger} from "../moduls/judger";
 import {Spu} from "../../models/spu";
+import {Cell} from "../moduls/cell";
 
 Component({
     /**
@@ -64,6 +65,7 @@ Component({
                 this.bindSpuData()
             }
             this.bindFenceGroupData(fencesGroup)
+            this.bindTipData()
         },
         bindSpuData() {
             const spu = this.properties.spu
@@ -71,8 +73,7 @@ Component({
                 previewImg: spu.img,
                 title: spu.title,
                 price: spu.price,
-                discountPrice: spu.discount_price,
-                skuIntact: this.data.judger.isSkuIntact() //SKU是否完整
+                discountPrice: spu.discount_price
             })
         },
         bindSkuData(sku) {
@@ -81,8 +82,14 @@ Component({
                 title: sku.title,
                 price: sku.price,
                 discountPrice: sku.discount_price,
-                stock: sku.stock,
-                skuIntact: this.data.judger.isSkuIntact() //SKU是否完整
+                stock: sku.stock
+            })
+        },
+        bindTipData(){
+            this.setData({
+                skuIntact: this.data.judger.isSkuIntact(), //SKU是否完整
+                currentValues: this.data.judger.getCurrentSpecValues(),
+                missingKeys: this.data.judger.getMissingKeys()
             })
         },
         bindFenceGroupData(fenceGroup) {
@@ -91,15 +98,22 @@ Component({
             })
         },
         onCellTap(event) {
-            const cell = event.detail.cell
+            const data = event.detail.cell
             const x = event.detail.x
             const y = event.detail.y
+            const cell = new Cell(data.spec)
+            cell.status = data.status
+
             const judger = this.data.judger
             judger.judge(cell, x, y)
-            this.setData({
-                fences: judger.fencesGroup.fences
-            })
-            console.log('judger fences:', judger.fencesGroup.fences)
+            this.bindFenceGroupData(judger.fencesGroup)
+
+            const skuIntact = judger.isSkuIntact()
+            if(skuIntact){
+                const currentSku = judger.getDeterminateSku()
+                this.bindSkuData(currentSku)
+            }
+            this.bindTipData()
         }
     }
 })

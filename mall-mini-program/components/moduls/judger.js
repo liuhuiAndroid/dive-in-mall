@@ -22,8 +22,24 @@ class Judger {
         this._initSkuPending()
     }
 
-    isSkuIntact(){
+    isSkuIntact() {
         return this.skuPending.isIntact()
+    }
+
+    /**
+     * 获取当前已选的规格值
+     */
+    getCurrentSpecValues() {
+        return this.skuPending.getCurrentSpecValues()
+    }
+    /**
+     * 获取未选的规格值
+     */
+    getMissingKeys() {
+        const missingKeysIndex = this.skuPending.getMissingSpecKeysIndex()
+        return missingKeysIndex.map(i => {
+            return this.fencesGroup.fences[i].title
+        })
     }
 
     /**
@@ -82,6 +98,15 @@ class Judger {
                 this.fencesGroup.setCellStatusByXY(x, y, CellStatus.FORBIDDEN)
             }
         })
+    }
+
+    /**
+     * 获取完整的SKU
+     */
+    getDeterminateSku() {
+        const code = this.skuPending.getSkuCode()
+        const sku = this.fencesGroup.getSku(code)
+        return sku
     }
 
     _isInDice(path) {

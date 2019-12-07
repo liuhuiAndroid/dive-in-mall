@@ -4,6 +4,7 @@
  * 职责：记录已选择的规格值
  */
 import {Cell} from "./cell";
+import {Joiner} from "../../utils/joiner";
 
 class SkuPending {
     pending = []
@@ -21,6 +22,39 @@ class SkuPending {
             const cell = new Cell(sku.specs[i])
             this.insertCell(cell, i)
         }
+    }
+
+    /**
+     * 获取当前已选的规格值
+     */
+    getCurrentSpecValues() {
+        const values = this.pending.map(cell => {
+            return cell ? cell.spec.value : null
+        })
+        return values
+    }
+
+    /**
+     * 获取未选的规格序号
+     */
+    getMissingSpecKeysIndex() {
+        const keyIndex = []
+        for (let i = 0; i < this.pending.length; i++) {
+            if(!this.pending[i]){
+                keyIndex.push(i)
+            }
+        }
+        return keyIndex
+    }
+
+    getSkuCode() {
+        const joiner = new Joiner('#')
+        console.log('this.pending', this.pending)
+        this.pending.forEach(cell => {
+            const cellCode = cell.getCellCode()
+            joiner.join(cellCode)
+        })
+        return joiner.getStr()
     }
 
     isIntact() {
