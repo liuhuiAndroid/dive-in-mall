@@ -2,8 +2,8 @@
 <view class="container">
     <view class="icons">
         <view bind:tap="onGoToHome">
-            <!-- 使用Lin UI l-icon组件 -->
-            <l-icon name="home" size="40" color="#157658"></l-icon>
+            <!-- 使用Lin UI l-icon组件 自定义l-icon -->
+            <l-icon name="home" l-class="noc"></l-icon>
         </view>
         <view bind:tap="onGoToCart">
             <l-icon name="cart" size="40" color="#157658"></l-icon>

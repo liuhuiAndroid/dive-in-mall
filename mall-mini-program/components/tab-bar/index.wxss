@@ -1,1 +1,5 @@
 /* components/tab-bar/index.wxss */
+.noc {
+    font-family: noc !important;
+    color: "#157658" !important;
+}

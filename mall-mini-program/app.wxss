@@ -16,8 +16,9 @@ page {
 
 .noc {
     font-family: noc !important;
+    color: "#157658" !important;
 }
 
 .l-icon-home:before {
-    content: "\e626;"
+    content: "\e626"
 }
