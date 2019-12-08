@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 import {Spu} from "../../models/spu";
+import {ShoppingWay} from "../../core/enum";
 
 Page({
 
@@ -21,15 +22,30 @@ Page({
         })
     },
 
+    onGotoHome(event) {
+        wx.switchTab({
+            url: '/pages/home/home'
+        })
+    },
+
+    onGotoCart(event) {
+        wx.switchTab({
+            url: '/pages/cart/cart'
+        })
+    },
+
     onAddToCart(event) {
-      this.setData({
-        showRealm: true
-      })
+        this.setData({
+            showRealm: true,
+            orderWay: ShoppingWay.CART
+        })
     },
 
     onBuy(event) {
-      this.setData({
-        showRealm: true
-      })
-    }
+        this.setData({
+            showRealm: true,
+            orderWay: ShoppingWay.BUY
+        })
+    },
+
 })

@@ -7,5 +7,5 @@
 </s-tabbar>
 
 <l-popup show="{{showRealm}}" content-align="bottom">
-    <s-realm spu="{{spu}}"></s-realm>
+    <s-realm order-way="{{orderWay}}" spu="{{spu}}"></s-realm>
 </l-popup>

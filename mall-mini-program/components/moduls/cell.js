@@ -8,6 +8,7 @@ class Cell{
     title
     id
     status = CellStatus.WAITING
+    skuImg
 
     /**
      * @param spec.spec 规格

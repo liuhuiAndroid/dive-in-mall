@@ -1,6 +1,5 @@
 import {Matrix} from "./matrix";
 import {Fence} from "./fence";
-import {CellStatus} from "../../core/enum";
 
 class FenceGroup {
     spu
@@ -24,7 +23,7 @@ class FenceGroup {
     }
 
     getSku(skuCode) {
-        const fullSkuCode = this.spu.id+'$' + skuCode
+        const fullSkuCode = this.spu.id + '$' + skuCode
         const sku = this.spu.sku_list.find(s => s.code === fullSkuCode)
         return sku ? sku : null
     }
@@ -70,10 +69,30 @@ class FenceGroup {
         AT.forEach(r => {
             const fence = new Fence(r)
             fence.init()
+            if (this._hasSketchFence() && this._isSketchFence(fence.id)) {
+                fence.setFenceSketch(this.skuList)
+            }
             fences.push(fence)
         })
         this.fences = fences
-        // console.log("fences:", fences)
+        console.log("fences:", fences)
+    }
+
+    /**
+     * 是否有可视的Fence
+     * @param this.spu.sketch_spec_id 可视规格
+     * @private
+     */
+    _hasSketchFence() {
+        return this.spu.sketch_spec_id ? true : false
+    }
+
+    /**
+     * 是否是可视的Fence
+     * @private
+     */
+    _isSketchFence(fenceId) {
+        return fenceId === this.spu.sketch_spec_id
     }
 
     eachCell(cb) {
