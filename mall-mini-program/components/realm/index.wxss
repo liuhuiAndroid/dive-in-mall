@@ -1,8 +1,14 @@
 /* components/realm/index.wxss */
 .container {
     box-sizing: border-box;
-    padding: 30rpx;
     background-color: #ffffff;
+    max-height: 1000rpx;
+    min-height: 700rpx;
+    margin-bottom: 100rpx;
+}
+
+.inner-container{
+    padding: 30rpx 30rpx 0 30rpx;
 }
 
 .sku-preview {
@@ -72,7 +78,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20rpx;
+    padding-bottom: 100rpx;
 }
 
 .counter-container text {

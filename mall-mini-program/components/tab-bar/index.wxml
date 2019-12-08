@@ -3,16 +3,20 @@
     <view class="icons">
         <view bind:tap="onGoToHome">
             <!-- 使用Lin UI l-icon组件 自定义l-icon -->
-            <l-icon name="home" l-class="noc"></l-icon>
+            <l-icon size="46" name="home" l-class="noc"></l-icon>
+            <text>首页</text>
         </view>
         <view bind:tap="onGoToCart">
-            <l-icon name="cart" size="40" color="#157658"></l-icon>
+            <l-badge shape="circle" value="11">
+                <l-icon size="44" name="cart"></l-icon>
+            </l-badge>
+            <text>购物车</text>
         </view>
     </view>
     <view bind:tap="onAddToCart" class="cart btn-font">
-
+        <text>加入购物车</text>
     </view>
     <view bind:tap="onBuy" class="buy btn-font">
-        立即购买
+        <text>立即购买</text>
     </view>
 </view>
