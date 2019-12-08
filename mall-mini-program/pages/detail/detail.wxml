@@ -1,3 +1,23 @@
+<view class="container">
+    <swiper class="top" autoplay indicator-dots>
+        <block wx:for="{{spu.spu_img_list}}">
+            <swiper-item>
+                <image class="top" mode="aspectFill" src="{{item.img}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <s-spu-description spu="{{spu}}"></s-spu-description>
+
+    <view wx:if="{{!noSpec}}" class="sku-pending">
+        <text wx:if="{{!skuIntact}}">请选择：</text>
+        <text wx:else>已选：</text>
+        <text wx:if="{{!skuIntact}}">{{missingKeys}}</text>
+        <text wx:else>{{currentValues}}</text>
+    </view>
+
+</view>
+
 <s-tabbar class="tabbar"
           bind:gotohome="onGotoHome"
           bind:gotocart="onGotoCart"

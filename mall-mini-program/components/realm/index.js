@@ -35,6 +35,7 @@ Component({
             } else {
                 this.processHasSpec(spu)
             }
+            this.triggerSpecEvent()
         }
     },
 
@@ -72,6 +73,14 @@ Component({
             }
             this.bindFenceGroupData(fencesGroup)
             this.bindTipData()
+        },
+
+        triggerSpecEvent() {
+            this.triggerEvent('specchange', {
+                skuIntact: this.data.judger.isSkuIntact(), //SKU是否完整
+                currentValues: this.data.judger.getCurrentSpecValues(),
+                missingKeys: this.data.judger.getMissingKeys()
+            })
         },
 
         bindSpuData() {
@@ -126,6 +135,7 @@ Component({
                 this.setStockStatus(currentSku.stock, this.data.currentSkuCount)
             }
             this.bindTipData()
+            this.triggerSpecEvent()
         },
 
         onSelectCount(event) {
