@@ -13,6 +13,7 @@ Page({
 
     /**
      * 生命周期函数--监听页面加载
+     * @param options.pid 商品id
      */
     onLoad: async function (options) {
         const pid = options.pid
@@ -20,28 +21,31 @@ Page({
         this.setData({
             spu
         })
+        console.log("商品信息：",spu)
     },
 
-    onGotoHome(event) {
+    onGoToHome() {
+        // 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
         wx.switchTab({
             url: '/pages/home/home'
         })
     },
 
-    onGotoCart(event) {
+    onGoToCart() {
+        // 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
         wx.switchTab({
             url: '/pages/cart/cart'
         })
     },
 
-    onAddToCart(event) {
+    onAddToCart() {
         this.setData({
             showRealm: true,
             orderWay: ShoppingWay.CART
         })
     },
 
-    onBuy(event) {
+    onBuy() {
         this.setData({
             showRealm: true,
             orderWay: ShoppingWay.BUY

@@ -27,7 +27,7 @@
             </view>
         </view>
         <view clss="hr"></view>
-        <block wx:for="{{fences}}" wx:key="{{index}}">
+        <block wx:for="{{fences}}" wx:key="index">
             <s-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></s-fence>
         </block>
         <view class="counter-container">

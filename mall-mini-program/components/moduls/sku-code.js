@@ -30,16 +30,15 @@ class SkuCode {
         const length = specCodeArray.length
         for (let i = 1; i <= length; i++) {
             const segments = combination(specCodeArray, i)
-            console.log("segments:", segments)
+            // console.log("segments:", segments)
             // 二维数组转一维数组
             const newSegments = segments.map(segs => {
                 return segs.join('#')
             })
-            console.log("newSegments:", newSegments)
+            // console.log("newSegments:", newSegments)
             this.totalSegments = this.totalSegments.concat(newSegments)
         }
-        console.log("totalSegments:", this.totalSegments)
-        console.log("----------------------------------")
+        // console.log("totalSegments:", this.totalSegments)
     }
 
 }

@@ -10,7 +10,7 @@
         <text class="title">{{data.title}}</text>
         <!--标签-->
         <view class="tags">
-            <block wx:for="{{tags}}" wx:key="{{index}}">
+            <block wx:for="{{tags}}" wx:key="index">
                 <l-tag type="reading" l-class="l-tag">{{item}}</l-tag>
             </block>
         </view>

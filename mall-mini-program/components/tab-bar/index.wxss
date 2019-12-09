@@ -1,9 +1,4 @@
 /* components/tab-bar/index.wxss */
-.noc {
-    font-family: noc !important;
-    color: "#157658" !important;
-}
-
 .container {
     height: 100rpx;
     width: 100%;
@@ -61,4 +56,9 @@
     background-color: #333333;
     width: 260rpx;
     height: 100%;
+}
+
+.noc {
+    font-family: noc !important;
+    color: #157658 !important;
 }

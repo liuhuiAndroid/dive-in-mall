@@ -50,7 +50,6 @@ Component({
             })
         },
         onItemTap(event){
-            console.log("event:",event)
             // event.currentTarget返回的是绑定事件的元素
             const pid = event.currentTarget.dataset.pid
             // 跳转页面，调用路由Api

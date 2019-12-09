@@ -6,7 +6,7 @@
     <view class="left">
         <text class="title">{{spu.title}}</text>
         <view class="tags">
-            <block wx:for="{{tags}}">
+            <block wx:for="{{tags}}" wx:key="index">
                 <l-tag type="reading"
                        bg-color="#DCEBE6"
                        font-color="#157658"
@@ -36,10 +36,12 @@
                     value="{{p.slashedPrice(spu.price,spu.discount_price).price}}">
 
             </l-price>
-            <l-tag l-class="discount-tag" type="reading"
-                   bg-color="#c93756"
-                   wx:if="{{spu.discount_price}}"
-                   size="super-mini">
+            <l-tag
+                    wx:if="{{spu.discount_price}}"
+                    type="reading"
+                    bg-color="#c93756"
+                    l-class="discount-tag"
+                    size="super-mini">
                 折扣
             </l-tag>
         </view>

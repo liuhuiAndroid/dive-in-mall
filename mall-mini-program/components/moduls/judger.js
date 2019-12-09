@@ -54,7 +54,7 @@ class Judger {
             return
         }
         this.skuPending.init(defaultSku)
-        console.log('skuPending:', this.skuPending)
+        // console.log('skuPending:', this.skuPending)
         this._initSelectedCell()
         this.judge(null, null, null, true)
     }
@@ -90,7 +90,7 @@ class Judger {
             if (!path) {
                 return
             }
-            console.log('path:', path)
+            // console.log('path:', path)
             const isIn = this._isInDice(path)
             if (isIn) {
                 this.fencesGroup.setCellStatusByXY(x, y, CellStatus.WAITING)

@@ -5,7 +5,7 @@
         <!--轮播图-->
         <swiper class="swiper" indicator-dots indicator-active-color="#157658"
                 autoplay circular>
-            <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
+            <block wx:for="{{bannerB.items}}" wx:key="index">
                 <swiper-item>
                     <image class="swiper" src="{{item.img}}"></image>
                 </swiper-item>
