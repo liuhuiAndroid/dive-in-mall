@@ -43,6 +43,10 @@ Page({
         this.initBottomSpuList()
     },
 
+    /**
+     * @param data.spu_list
+     * @returns {Promise<void>}
+     */
     async initAllData() {
         const theme = new Theme()
         await theme.getThemes()
