@@ -8,7 +8,7 @@ class BannerController {
 
     @RequestMapping("/")
     fun test(): String {
-        return "Hello world"
+        return "Hello Jarvan"
     }
 
 }
