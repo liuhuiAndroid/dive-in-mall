@@ -1,0 +1,7 @@
+<view class="container">
+    <block wx:for="{{_texts}}">
+        <view class="inner">
+            <text>{{item}}</text>
+        </view>
+    </block>
+</view>

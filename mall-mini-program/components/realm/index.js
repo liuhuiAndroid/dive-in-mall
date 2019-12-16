@@ -76,11 +76,19 @@ Component({
         },
 
         triggerSpecEvent() {
-            this.triggerEvent('specchange', {
-                skuIntact: this.data.judger.isSkuIntact(), //SKU是否完整
-                currentValues: this.data.judger.getCurrentSpecValues(),
-                missingKeys: this.data.judger.getMissingKeys()
-            })
+            const noSpec = Spu.isNoSpec(this.properties.spu)
+            if (noSpec) {
+                this.triggerEvent('specchange', {
+                    noSpec: Spu.isNoSpec(this.properties.spu)
+                })
+            } else {
+                this.triggerEvent('specchange', {
+                    noSpec: Spu.isNoSpec(this.properties.spu),
+                    skuIntact: this.data.judger.isSkuIntact(), //SKU是否完整
+                    currentValues: this.data.judger.getCurrentSpecValues(),
+                    missingKeys: this.data.judger.getMissingKeys()
+                })
+            }
         },
 
         bindSpuData() {
